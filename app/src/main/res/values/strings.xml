@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Fresher Demo</string>
+    <string-array name="numbers">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+    </string-array>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Email">Email</string>
+    <string name="Contact_name">Contact Name</string>
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="request_permission">Request Permission</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="permission_allowed">Permission Allowed</string>
+    <string name="delete">Delete</string>
+    <string name="expenses">Expenses</string>
+    <string name="thread">Thread</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="expenses_list">Expenses List</string>
+    <string name="add_expenses">Add Expenses</string>
+    <string name="edit_expenses">Edit Expenses</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="amount">Amount</string>
+    <string name="paid_via">Paid Via</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="required">Required!</string>
+    <string name="date_not_valid">Date not valid!</string>
+    <string name="amount_not_valid">Amount not valid!</string>
+    <string name="eg_12_12_2020">Eg:12/12/2020</string>
+    <string name="delete_confirmation_text">Are you want to delete?</string>
+    <string name="deleted_text">Expenses is deleted!</string>
+    <string name="expenses_inserted">Expenses Inserted!</string>
+    <string name="expenses_updated">Expenses Updated!</string>
+    <string name="something_wrong">Something wrong!</string>
+    <string name="fcm_token_message">FCM Token is </string>
+    <string name="default_notification_channel_id">Fresher ID</string>
+    <string name="default_notification_channel_name">Fresher Channel</string>
+    <string name="default_notification_channel_description">Fresher Description</string>
+    <string name="map">Map</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>

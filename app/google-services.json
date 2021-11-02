@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775092765932",
+    "project_id": "fresherdemo-9",
+    "storage_bucket": "fresherdemo-9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775092765932:android:4fc7cf245069850924d1c9",
+        "android_client_info": {
+          "package_name": "com.example.fresher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775092765932-i6r0vaair326jgrbmbgfc7tffcsbdlqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkBDuqBdxYTQdcZibpirUOPKAY9qBlvlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775092765932-i6r0vaair326jgrbmbgfc7tffcsbdlqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
