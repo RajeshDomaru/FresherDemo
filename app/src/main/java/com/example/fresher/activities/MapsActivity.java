@@ -30,7 +30,9 @@ import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -57,6 +59,10 @@ public class MapsActivity extends FragmentActivity {
 
     private ArrayList<Polyline> polylineList;
 
+    private ArrayList<Marker> markerLists;
+
+    private boolean isSwap = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,6 +77,8 @@ public class MapsActivity extends FragmentActivity {
     private void init() {
 
         polylineList = new ArrayList<>();
+
+        markerLists = new ArrayList<>();
 
         btnPolygonGenerate = findViewById(R.id.btnPolygonGenerate);
 
@@ -244,6 +252,8 @@ public class MapsActivity extends FragmentActivity {
 
                         googleMap.setOnMapClickListener(latLng -> latLongArrayList.add(latLng));
 
+                        googleMap.getUiSettings().setZoomControlsEnabled(true);
+
                     } else {
 
                         Toast.makeText(getApplicationContext(), "Location not found...", Toast.LENGTH_SHORT).show();
@@ -280,9 +290,28 @@ public class MapsActivity extends FragmentActivity {
 
                         polylineOptions.add(latLongArrayList.get(i));
 
+                        MarkerOptions markerOptions = new MarkerOptions()
+                                .position(latLongArrayList.get(i))
+                                .title("Maker " + (i + 1))
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
+                        Marker marker = googleMap.addMarker(markerOptions);
+
+                        markerLists.add(marker);
+
                         if (i == latLongArrayList.size() - 1) {
 
-                            polylineOptions.add(latLongArrayList.get(0));
+                            if (isSwap) {
+
+                                polylineOptions.add(latLongArrayList.get(0));
+
+                                isSwap = false;
+
+                            } else {
+
+                                isSwap = true;
+
+                            }
 
                         }
 
@@ -306,6 +335,7 @@ public class MapsActivity extends FragmentActivity {
 
         btnPolygonClear.setOnClickListener(v -> {
 
+            // Clear PolyGone
             for (int i = 0; i < polylineList.size(); i++) {
 
                 polylineList.get(i).remove();
@@ -313,6 +343,14 @@ public class MapsActivity extends FragmentActivity {
             }
 
             polylineList.clear();
+
+            for (int i = 0; i < markerLists.size(); i++) {
+
+                markerLists.get(i).remove();
+
+            }
+
+            markerLists.clear();
 
         });
 
