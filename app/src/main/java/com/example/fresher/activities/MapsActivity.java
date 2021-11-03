@@ -9,11 +9,13 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -26,9 +28,14 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity {
 
@@ -39,6 +46,16 @@ public class MapsActivity extends FragmentActivity {
     private LocationSettingsRequest locationSettingsRequest;
 
     private LocationManager locationManager;
+
+    private GoogleMap googleMap;
+
+    private ArrayList<LatLng> latLongArrayList;
+
+    private AppCompatButton btnPolylineGenerate, btnPolylineClear;
+
+    private Polyline lastPolyline;
+
+    private ArrayList<Polyline> polylineList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +69,16 @@ public class MapsActivity extends FragmentActivity {
     }
 
     private void init() {
+
+        polylineList = new ArrayList<>();
+
+        btnPolylineGenerate = findViewById(R.id.btnPolylineGenerate);
+
+        btnPolylineClear = findViewById(R.id.btnPolylineClear);
+
+        btnPolylineGenerate.setVisibility(View.GONE);
+
+        btnPolylineClear.setVisibility(View.GONE);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -195,17 +222,27 @@ public class MapsActivity extends FragmentActivity {
 
                 try {
 
+                    this.googleMap = googleMap;
+
                     googleMap.setMyLocationEnabled(true);
 
                     Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(new Criteria(), false));
 
                     if (location != null) {
 
+                        setOnClickListener();
+
+                        latLongArrayList = new ArrayList<>();
+
                         LatLng myLatLong = new LatLng(location.getLatitude(), location.getLongitude());
 
                         googleMap.addMarker(new MarkerOptions().position(myLatLong).title("My Location"));
 
                         googleMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLong));
+
+                        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+
+                        googleMap.setOnMapClickListener(latLng -> latLongArrayList.add(latLng));
 
                     } else {
 
@@ -222,6 +259,62 @@ public class MapsActivity extends FragmentActivity {
             });
 
         }
+
+    }
+
+    private void setOnClickListener() {
+
+        btnPolylineGenerate.setVisibility(View.VISIBLE);
+
+        btnPolylineClear.setVisibility(View.VISIBLE);
+
+        btnPolylineGenerate.setOnClickListener(v -> {
+
+            if (googleMap != null && latLongArrayList != null) {
+
+                PolylineOptions polylineOptions = new PolylineOptions().clickable(true);
+
+                if (latLongArrayList.size() > 2) {
+
+                    for (int i = 0; i < latLongArrayList.size(); i++) {
+
+                        polylineOptions.add(latLongArrayList.get(i));
+
+                        if (i == latLongArrayList.size() - 1) {
+
+                            polylineOptions.add(latLongArrayList.get(0));
+
+                        }
+
+                    }
+
+                    lastPolyline = googleMap.addPolyline(polylineOptions);
+
+                    polylineList.add(lastPolyline);
+
+                    latLongArrayList.clear();
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Please, pick more than 3points...", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+        });
+
+        btnPolylineClear.setOnClickListener(v -> {
+
+            for (int i = 0; i < polylineList.size(); i++) {
+
+                polylineList.get(i).remove();
+
+            }
+
+            polylineList.clear();
+
+        });
 
     }
 

@@ -59,4 +59,6 @@
     <string name="default_notification_channel_description">Fresher Description</string>
     <string name="map">Map</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="generate_polyline">Generate Polyline</string>
+    <string name="clear_polyline">Clear Polyline</string>
 </resources>
