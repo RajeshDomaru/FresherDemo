@@ -51,7 +51,7 @@ public class MapsActivity extends FragmentActivity {
 
     private ArrayList<LatLng> latLongArrayList;
 
-    private AppCompatButton btnPolylineGenerate, btnPolylineClear;
+    private AppCompatButton btnPolygonGenerate, btnPolygonClear;
 
     private Polyline lastPolyline;
 
@@ -72,13 +72,13 @@ public class MapsActivity extends FragmentActivity {
 
         polylineList = new ArrayList<>();
 
-        btnPolylineGenerate = findViewById(R.id.btnPolylineGenerate);
+        btnPolygonGenerate = findViewById(R.id.btnPolygonGenerate);
 
-        btnPolylineClear = findViewById(R.id.btnPolylineClear);
+        btnPolygonClear = findViewById(R.id.btnPolygonClear);
 
-        btnPolylineGenerate.setVisibility(View.GONE);
+        btnPolygonGenerate.setVisibility(View.GONE);
 
-        btnPolylineClear.setVisibility(View.GONE);
+        btnPolygonClear.setVisibility(View.GONE);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -264,11 +264,11 @@ public class MapsActivity extends FragmentActivity {
 
     private void setOnClickListener() {
 
-        btnPolylineGenerate.setVisibility(View.VISIBLE);
+        btnPolygonGenerate.setVisibility(View.VISIBLE);
 
-        btnPolylineClear.setVisibility(View.VISIBLE);
+        btnPolygonClear.setVisibility(View.VISIBLE);
 
-        btnPolylineGenerate.setOnClickListener(v -> {
+        btnPolygonGenerate.setOnClickListener(v -> {
 
             if (googleMap != null && latLongArrayList != null) {
 
@@ -296,7 +296,7 @@ public class MapsActivity extends FragmentActivity {
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Please, pick more than 3points...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please, pick more than 2points...", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -304,7 +304,7 @@ public class MapsActivity extends FragmentActivity {
 
         });
 
-        btnPolylineClear.setOnClickListener(v -> {
+        btnPolygonClear.setOnClickListener(v -> {
 
             for (int i = 0; i < polylineList.size(); i++) {
 
