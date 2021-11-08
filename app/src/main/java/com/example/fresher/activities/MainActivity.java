@@ -32,7 +32,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.fresher.BuildConfig;
 import com.example.fresher.R;
-import com.example.fresher.activities.MapsActivity;
+import com.example.fresher.fragments.CustomViewFragment;
 import com.example.fresher.fragments.DashboardFragment;
 import com.example.fresher.fragments.SignUpFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -283,15 +283,21 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
 
-                case R.id.logout:
-
-                    showAlertDialog();
-
-                    break;
-
                 case R.id.map:
 
                     gotoMapActivity();
+
+                    break;
+
+                case R.id.customView:
+
+                    gotoCustom();
+
+                    break;
+
+                case R.id.logout:
+
+                    showAlertDialog();
 
                     break;
 
@@ -312,6 +318,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     private void showAlertDialog() {
 
@@ -401,6 +408,17 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main, fragment, getApplicationContext().getResources().getString(R.string.dashboard))
+                .commit();
+
+    }
+
+    private void gotoCustom() {
+
+        Fragment fragment = new CustomViewFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main, fragment, getApplicationContext().getResources().getString(R.string.custom_view))
+                .addToBackStack(getApplicationContext().getResources().getString(R.string.dashboard))
                 .commit();
 
     }

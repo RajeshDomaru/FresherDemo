@@ -12,6 +12,11 @@
         android:title="@string/map" />
 
     <item
+        android:id="@+id/customView"
+        android:icon="@drawable/shapes"
+        android:title="@string/custom_view" />
+
+    <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
         android:title="@string/logout" />
