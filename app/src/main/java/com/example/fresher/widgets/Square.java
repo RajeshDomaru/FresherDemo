@@ -12,9 +12,15 @@ import androidx.annotation.Nullable;
 
 public class Square extends View {
 
+    private Rect rect;
+
+    private Paint paint;
+
     public Square(Context context) {
 
         super(context);
+
+        init();
 
     }
 
@@ -22,17 +28,23 @@ public class Square extends View {
 
         super(context, attrs);
 
+        init();
+
     }
 
     public Square(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 
         super(context, attrs, defStyleAttr);
 
+        init();
+
     }
 
     public Square(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 
         super(context, attrs, defStyleAttr, defStyleRes);
+
+        init();
 
     }
 
@@ -41,18 +53,28 @@ public class Square extends View {
 
         super.onDraw(canvas);
 
-        Rect rect = new Rect();
-
-        rect.top = 10;
-        rect.left = 10;
-
-        rect.right = 100;
-        rect.bottom = 100;
-
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
-
         canvas.drawRect(rect, paint);
+
+    }
+
+    private void init() {
+
+        rect = new Rect();
+
+        int top = 10;
+        int left = 10;
+
+        int right = 100;
+        int bottom = 100;
+
+        rect.top = top;
+        rect.left = left;
+
+        rect.right = right;
+        rect.bottom = bottom;
+
+        paint = new Paint();
+        paint.setColor(Color.RED);
 
     }
 

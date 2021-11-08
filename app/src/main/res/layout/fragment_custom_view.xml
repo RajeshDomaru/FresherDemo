@@ -8,7 +8,12 @@
 
     <com.example.fresher.widgets.Square
         android:id="@+id/cvSquare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <com.example.fresher.widgets.Line
+        android:id="@+id/cvLine"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
 </LinearLayout>
