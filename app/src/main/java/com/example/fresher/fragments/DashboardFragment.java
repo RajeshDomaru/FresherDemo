@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.fresher.R;
+import com.example.fresher.inheritance.ClassC;
 
 import java.util.concurrent.Executors;
 
@@ -27,7 +29,9 @@ public class DashboardFragment extends Fragment {
 
     private View mainView;
 
-    private CardView cvExpenses, cvThread;
+    private CardView cvExpenses, cvThread, cvInterface;
+
+    private AppCompatTextView tvDisplayValue;
 
     private ProgressBar pbThread;
 
@@ -77,6 +81,10 @@ public class DashboardFragment extends Fragment {
 
         pbThread = mainView.findViewById(R.id.pbThread);
 
+        cvInterface = mainView.findViewById(R.id.cvInterface);
+
+        tvDisplayValue = mainView.findViewById(R.id.tvDisplayValue);
+
     }
 
     private void setOnClickListener() {
@@ -104,6 +112,18 @@ public class DashboardFragment extends Fragment {
         cvThread.setOnClickListener(v -> {
 
             invokeExecutorService();
+
+        });
+
+        cvInterface.setOnClickListener(v -> {
+
+            ClassC classC = new ClassC();
+
+            String displayString = classC.method1() + " : " + classC.method2() + " : " + classC.method3();
+
+            tvDisplayValue.setVisibility(View.VISIBLE);
+
+            tvDisplayValue.setText(displayString);
 
         });
 

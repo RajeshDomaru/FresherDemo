@@ -62,4 +62,5 @@
     <string name="generate_polyline">Generate Polyline</string>
     <string name="clear_polyline">Clear Polyline</string>
     <string name="custom_view">Custom View</string>
+    <string name="inheritance">Inheritance</string>
 </resources>

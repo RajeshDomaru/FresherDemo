@@ -12,11 +12,12 @@
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/drawable/ic_location.xml" value="0.20833333333333334" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/drawable/ic_logout.xml" value="0.20833333333333334" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/drawable/ic_share.xml" value="0.20833333333333334" />
+        <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/drawable/sample_icon.xml" value="0.20833333333333334" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/activity_maps.xml" value="0.1838768115942029" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_add_or_edit_expenses.xml" value="0.25" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_custom_view.xml" value="0.25" />
-        <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
+        <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_expenses_list.xml" value="0.1921875" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_home.xml" value="0.14" />
         <entry key="..\:/StudioProjects/FresherDemo/app/src/main/res/layout/fragment_sign_up.xml" value="0.2" />
