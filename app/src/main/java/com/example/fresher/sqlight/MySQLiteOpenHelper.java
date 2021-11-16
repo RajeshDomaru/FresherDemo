@@ -62,7 +62,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         db.close();
 
-        return insertedId ;
+        return insertedId;
 
     }
 
@@ -128,6 +128,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
 
         }
+
+        cursor.close();
 
         db.close();
 
